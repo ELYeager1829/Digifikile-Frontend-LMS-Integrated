@@ -1,0 +1,99 @@
+/* Global responsive utilities and graceful fallbacks
+   - Improves grid behavior across breakpoints using auto-fit/minmax
+   - Ensures shell and sidebar collapse nicely on small screens
+   - Adds fluid images, responsive modals, and table fallbacks
+   - This file intentionally only adjusts layout / presentation (no JS)
+*/
+
+/* Fluid media */
+img, picture, video, canvas { max-width: 100%; height: auto; display: block; }
+
+/* Make common multi-column grids adapt to viewport width */
+.overview-grid,
+.status-grid,
+.overview-grid,
+.learner-stats-grid,
+.learner-stats-grid,
+.kpi-cards,
+.system-admin-metrics,
+.system-admin-region-grid,
+.system-admin-health-grid,
+.quick-actions-grid,
+.quick-actions > div,
+.quick-actions-grid,
+.system-admin-content-grid,
+.dashboard-bottom-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(8px, 1.6vw, 20px);
+}
+
+/* App shell adjustments for small screens */
+@media (max-width: 1024px) {
+  .app-shell { flex-direction: column; }
+  .main-column { margin-left: 0 !important; }
+  .page-content { padding: 16px !important; }
+
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .app-shell.seta-admin-shell { flex-direction: row; }
+  .app-shell.seta-admin-shell .admin-sidebar:not(.is-collapsed) {
+    flex: 0 0 200px;
+    width: 200px !important;
+  }
+  .app-shell.seta-admin-shell .admin-sidebar.is-collapsed {
+    flex: 0 0 64px;
+    width: 64px !important;
+  }
+  .app-shell.seta-admin-shell .main-column { min-width: 0; }
+}
+
+/* Tighter layout for narrow phones */
+@media (max-width: 640px) {
+  :root { --sp-1: 6px; --sp-2: 8px; --sp-3: 12px; }
+  h1, h2, h3 { line-height: 1.15; }
+  .page-content { padding-left: 12px; padding-right: 12px; }
+  .page-header { gap: 8px; }
+  .overview-value, .overview-card > strong, .admin-overview-card > strong { font-size: clamp(20px, 6vw, 28px); }
+  .admin-dashboard-grid, .dashboard-bottom-row { grid-template-columns: 1fr; }
+  .system-admin-nav-item, .system-admin-meta-item { padding: 8px; font-size: 13px; }
+  .system-admin-user-meta strong { font-size: 13px; }
+}
+
+/* Prevent horizontal overflow from long text or preformatted content */
+body, .page-content, .system-admin-page { min-width: 0; }
+.text-truncate { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+/* Responsive tables — allow scrolling within container */
+.table-responsive, .system-admin-table-wrap, .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-responsive > table { min-width: max-content; }
+
+/* Ensure modals fit within viewport on very small screens */
+.modal-panel { max-width: min(96vw, 720px); }
+
+/* Buttons: allow wrapping and flexible sizing on small screens */
+.btn, button { white-space: nowrap; }
+@media (max-width: 640px) { .system-admin-action-row, .admin-heading-actions { display: flex; flex-wrap: wrap; gap: 8px; } .admin-primary-btn.full { width: 100%; } }
+
+@media (max-width: 768px) {
+  .page-content { overflow-x: hidden; }
+  .modal-panel, .drawer-panel, .auth-hero-panel, .auth-form-panel { max-width: 100%; min-width: 0; }
+  .enrollment-heading, .enrollment-footer { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .enrollment-heading > div:last-child { align-self: stretch; display: flex; flex-wrap: wrap; gap: 8px; }
+  .enrollment-heading > div:last-child > button { flex: 1 1 auto; }
+}
+
+/* Forms: make input fields responsive */
+input[type=text], input[type=email], input[type=password], textarea, select { max-width: 100%; }
+
+/* Accessibility: maintain readable content width on very large screens */
+main, .page-content { max-width: 1200px; margin: 0 auto; }
+.system-admin-page { width: 100%; max-width: none; margin: 0; }
+
+/* Slightly increase breakpoint support for large desktops */
+@media (min-width: 1280px) {
+  .overview-grid, .admin-overview-grid, .system-admin-metrics { grid-template-columns: repeat(4, minmax(240px, 1fr)); }
+}
+
+/* End of responsive.css */

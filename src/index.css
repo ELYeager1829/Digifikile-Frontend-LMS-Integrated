@@ -1,0 +1,31 @@
+/**
+ * @file index.css — DigiFikile LMS Frontend
+ * @layer Component
+ *
+ * PURPOSE:
+ *   Global stylesheet entrypoint that composes Tailwind and project CSS.
+ *
+ * WHY THIS EXISTS:
+ *   Centralizes style imports so visual tokens and utility layers are loaded
+ *   once for all pages and components.
+ *
+ * WHAT TO IMPLEMENT HERE:
+ *   - Keep global imports only (tokens, resets, base typography).
+ *   - Avoid page-specific styling in this file.
+ *   - Ensure variables.css loads before custom component styles.
+ *
+ * DIGIFIKILE LMS CONTEXT:
+ *   Shared colors for progress, grades, and role status are driven by
+ *   variables imported through this root stylesheet.
+ *
+ * @example
+ *   // @import "./styles/variables.css";
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+@import "tailwindcss";
+@import "./styles/variables.css";
+@import "./styles/custom.css";
+@import "./styles/tokens.css";
+@import "./styles/global.css";
+@import "./styles/responsive.css";

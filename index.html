@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigiFikile LMS</title>
+    <script>
+      // Dev-time shim to ensure React Refresh preamble finds a global hook.
+      window.$RefreshReg$ = window.$RefreshReg$ || function() {}
+      window.$RefreshSig$ = window.$RefreshSig$ || function() { return function(type){ return type } }
+    </script>
+    <script>
+      // Capture early errors for debugging in dev
+      window._capturedErrors = []
+      window.addEventListener('error', (e) => {
+        try { window._capturedErrors.push({ type: 'error', message: e.message, filename: e.filename, lineno: e.lineno, colno: e.colno }) } catch (err) {}
+      })
+      window.addEventListener('unhandledrejection', (e) => {
+        try { window._capturedErrors.push({ type: 'unhandledrejection', message: e.reason?.message || String(e.reason) }) } catch (err) {}
+      })
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
