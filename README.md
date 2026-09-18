@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DigiFikile LMS Frontend
 
 > A patient, practical onboarding guide for interns and junior developers working in a feature-based React application.
@@ -1527,3 +1528,6 @@ If you are still uncertain, ask a reviewer **before** creating a new abstraction
 - mix unrelated refactoring into a focused task.
 
 Welcome to the project. Work in small vertical slices, preserve the layer boundaries, and ask early when the backend contract or ownership is unclear.
+=======
+# Digifikile-Frontend-LMS-Integrated
+>>>>>>> 28b3df4265cd1ded16d7039a3ec6640802feef3a
