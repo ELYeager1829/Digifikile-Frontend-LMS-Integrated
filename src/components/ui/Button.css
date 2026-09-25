@@ -1,0 +1,22 @@
+.df-button { align-items: center; appearance: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer; display: inline-flex; font: inherit; font-size: 14px; font-weight: 600; gap: 8px; justify-content: center; line-height: 1.25; min-height: 40px; padding: 10px 20px; transition: background-color .2s ease, border-color .2s ease, color .2s ease, opacity .2s ease; }
+.df-button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.df-button:disabled { cursor: not-allowed; opacity: .55; }
+.df-button--default { background: var(--primary-color, #0056b3); color: #fff; }
+.df-button--default:hover:not(:disabled) { background: var(--primary-color-hover, #004494); }
+.df-button--secondary { background: var(--teal-soft); color: var(--teal); }
+.df-button--secondary:hover:not(:disabled) { background: #d2e5df; }
+.df-button--outline { background: var(--paper-raised); border-color: var(--line-strong); color: var(--ink-soft); }
+.df-button--outline:hover:not(:disabled) { background: var(--paper); border-color: var(--ink-faint); }
+.df-button--destructive { background: var(--red); color: #fff; }
+.df-button--destructive:hover:not(:disabled) { background: #8f2019; }
+.df-button--gold { background: var(--gold); color: var(--ink); }
+.df-button--gold:hover:not(:disabled) { background: #967625; }
+.df-button--ghost { background: transparent; color: var(--ink-soft); }
+.df-button--ghost:hover:not(:disabled) { background: rgba(22, 35, 63, .06); color: var(--ink); }
+.df-button--link { background: transparent; color: var(--primary-color, #0056b3); min-height: auto; padding: 0; text-decoration: none; }
+.df-button--link:hover:not(:disabled) { color: var(--primary-color-hover, #004494); text-decoration: underline; }
+.df-button--sm { min-height: 32px; padding: 6px 12px; font-size: 13px; }
+.df-button--lg { min-height: 46px; padding: 12px 24px; font-size: 15px; }
+.df-button--icon { min-height: 36px; min-width: 36px; padding: 8px; }
+.df-button__spinner { animation: df-button-spin .75s linear infinite; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; height: 14px; width: 14px; }
+@keyframes df-button-spin { to { transform: rotate(360deg); } }

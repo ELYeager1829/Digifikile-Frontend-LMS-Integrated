@@ -1,0 +1,35 @@
+:root {
+  /* Color */
+  --paper: #F7F5F0;
+  --paper-raised: #FFFFFF;
+  --ink: #16233F;
+  --ink-soft: #3C4F72;
+  --ink-faint: #8792A6;
+  --line: #DAD5C8;
+  --line-strong: #B9B2A0;
+  --gold: #B8912F;
+  --gold-soft: #EFE3C2;
+  --teal: #3F7268;
+  --teal-soft: #E3EEEC;
+  --red: #B3261E;
+  --red-soft: #F6E4E2;
+
+  /* Type */
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
+
+  /* Spacing scale */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  --radius: 3px;
+  --sidebar-w: 248px;
+  
+}

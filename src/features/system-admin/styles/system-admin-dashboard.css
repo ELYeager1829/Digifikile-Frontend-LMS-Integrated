@@ -1,0 +1,156 @@
+/* Scoped System Admin Dashboard styles â€” do not affect other pages */
+.system-admin-dashboard-page{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  width:100%;
+  max-width:none;
+  margin:0;
+  flex:1 1 auto;
+  gap:24px;
+  background:#f8fafc;
+  padding:28px;
+  color:#0f172a;
+  font-family: inherit;
+  font-size:12px;
+}
+
+/* Let the dashboard use the full width/height of the content area.
+   responsive.css caps <main> at 1200px and centres it, which leaves dead space
+   either side of the dashboard on wide screens. Mirrors the treatment already
+   used by complaints.css (.system-admin-page:has(> .cmp-page)). */
+.system-admin-page:has(> .system-admin-dashboard-page){
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+}
+
+/* ensure padding doesn't break width calculations inside the dashboard */
+.system-admin-dashboard-page, .system-admin-dashboard-page *{ box-sizing: border-box; }
+
+.system-admin-dashboard-page header h1{
+  color:#0b1a35; /* dark navy */
+  font-size:22px;
+  margin-bottom:6px;
+  font-weight:700;
+}
+.system-admin-dashboard-page header p{
+  margin:0;
+  color:#475569;
+  font-size:13px;
+}
+
+.kpi-cards{ display:grid; grid-template-columns: repeat(4,1fr); gap:16px }
+.kpi-cards .card{
+  background:#fff;
+  border:1px solid rgba(15,23,42,0.04);
+  border-radius:12px;
+  padding:20px 22px;
+  box-shadow:0 4px 12px rgba(2,6,23,0.04);
+  min-height:96px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.kpi-cards .card .title, .kpi-cards .card div:first-child{ text-transform:uppercase; font-size:11px; letter-spacing:0.06em; color:#334155; font-weight:700 }
+.kpi-cards .card .value, .kpi-cards .card strong{ font-size:34px; font-weight:800; color:#071640 }
+.kpi-cards .card small{ color:#64748b; display:block; margin-top:8px }
+.kpi-cards .card .meta{ margin-top:10px; color:#0ea5ff; font-weight:700; font-size:12px; display:flex; align-items:center; gap:8px }
+
+/* soft accent background for icons */
+.kpi-cards .card .accent{ width:44px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; box-shadow: inset 0 -6px 24px rgba(255,255,255,0.6), 0 6px 20px rgba(2,6,23,0.04) }
+.kpi-card-seta .accent{ background: linear-gradient(180deg, rgba(14,165,233,0.12), rgba(14,165,233,0.04)); color:#0369a1 }
+.kpi-card-complaints .accent{ background: linear-gradient(180deg, rgba(239,68,68,0.12), rgba(239,68,68,0.04)); color:#b91c1c }
+.kpi-card-resolved .accent{ background: linear-gradient(180deg, rgba(99,102,241,0.10), rgba(99,102,241,0.04)); color:#3730a3 }
+.kpi-card-log .accent{ background: linear-gradient(180deg, rgba(124,58,237,0.10), rgba(124,58,237,0.04)); color:#7c3aed }
+
+/* Accent pills/icons */
+/* (removed duplicate small-size accent block to prevent conflicts) */
+
+/* Quick actions */
+.quick-actions{ background:#fff; border:1px solid rgba(15,23,42,0.04); padding:15px 20px; border-radius:12px; box-shadow:0 6px 18px rgba(2,6,23,0.04); }
+.quick-actions .primary-btn, .primary-btn{ background:#071640; color:#fff; border:none; padding:12px 18px; border-radius:10px; cursor:pointer; box-shadow:0 6px 12px rgba(7,22,64,0.18) }
+.quick-actions .secondary-btn, .secondary-btn{ background:#0ea5ff; color:#fff; border:none; padding:12px 18px; border-radius:10px; cursor:pointer }
+.quick-actions .ghost-btn, .ghost-btn{ background:#fff; border:1px solid rgba(15,23,42,0.06); color:#0f172a; padding:10px 14px; border-radius:10px; cursor:pointer }
+.quick-actions .inline-link{ background:none; border:none; color:#0ea5ff; cursor:pointer }
+
+/* Make the quick actions container distribute buttons symmetrically */
+.quick-actions > div{ display:grid !important; grid-template-columns: repeat(4,minmax(0,1fr)) !important; gap:16px !important; width:100% !important }
+.quick-actions button{ width:100%; min-height:48px; display:flex; align-items:center; justify-content:center; padding:12px 16px; white-space:nowrap }
+.quick-actions button .icon{ margin-right:10px; display:inline-flex; align-items:center }
+.quick-actions .primary-btn .icon svg, .quick-actions .secondary-btn .icon svg{ filter: drop-shadow(0 2px 6px rgba(2,6,23,0.08)) }
+.quick-actions button .icon{ margin-right:8px; display:inline-flex; align-items:center }
+
+/* Icon wrapper and hover states for quick actions */
+.quick-actions button{ transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease }
+.quick-actions button:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(2,6,23,0.08) }
+.quick-actions .primary-btn:hover{ background:linear-gradient(180deg,#0b2048,#071640) }
+.quick-actions .secondary-btn:hover{ background:linear-gradient(180deg,#09a7ff,#0ea5ff) }
+.quick-actions .ghost-btn:hover{ background:#f7f9fc; border-color:rgba(15,23,42,0.08) }
+
+/* Icon wrapper to the left of labels; colored background for primary/secondary */
+.quick-actions button .icon-wrapper{ width:36px; height:36px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; margin-right:10px }
+.quick-actions .primary-btn .icon-wrapper{ background:rgba(255,255,255,0.06); color:#fff }
+.quick-actions .secondary-btn .icon-wrapper{ background:rgba(255,255,255,0.12); color:#fff }
+.quick-actions .ghost-btn .icon-wrapper{ background:#fff; color:#0f172a; box-shadow:0 1px 2px rgba(2,6,23,0.04); border:1px solid rgba(15,23,42,0.04) }
+
+/* Main grid */
+.main-grid{ margin-top:8px; }
+@media(min-width:1024px){ .main-grid{ display:grid; grid-template-columns: 2fr 1fr; gap:16px } }
+/* One pixel below the desktop threshold prevents overlapping min/max rules. */
+@media(max-width:1023px){ .main-grid{ display:block } }
+
+/* Complaints table */
+.system-admin-complaints{ background:#fff; border:1px solid rgba(15,23,42,0.04); padding:16px; border-radius:12px; box-shadow:0 2px 8px rgba(2,6,23,0.03) }
+.system-admin-complaints h3{ margin:0; }
+.system-admin-complaints .pending-badge{ background:#fff1f2; color:#b91c1c; padding:6px 8px; border-radius:999px; font-weight:600; font-size:12px }
+.system-admin-complaints table{ width:100%; border-collapse:collapse; margin-top:12px }
+.system-admin-complaints th{ text-align:left; padding:10px 8px; color:#334155; font-weight:600; font-size:13px }
+.system-admin-complaints td{ padding:12px 8px; border-top:1px solid rgba(2,6,23,0.04); color:#0f172a; font-size:14px }
+.system-admin-complaints .case-id{ color:#0ea5ff; font-weight:600 }
+.system-admin-complaints .avatar{ width:32px; height:32px; border-radius:50%; background:#eef2ff; display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:#0b1a35 }
+
+/* Pill statuses */
+.pill{ padding:6px 10px; border-radius:999px; font-size:12px; font-weight:600 }
+.pill.high{ background:#fff1f0; color:#b91c1c }
+.pill.medium{ background:#fffbeb; color:#92400e }
+.pill.pending{ background:#eef2ff; color:#0369a1 }
+.pill.under-review{ background:#f3e8ff; color:#6b21a8 }
+
+/* Audit stream */
+.audit-stream{ background:#fff; border:1px solid rgba(15,23,42,0.04); padding:16px; border-radius:12px; box-shadow:0 2px 8px rgba(2,6,23,0.03) }
+.audit-stream .live{ display:inline-block; background:#eef2ff; color:#0369a1; padding:3px 8px; border-radius:999px; font-weight:700; font-size:12px }
+.audit-stream .events{ margin-top:12px; display:flex; flex-direction:column; gap:12px }
+.audit-stream .event{ display:flex; gap:10px }
+.audit-stream .dot{ width:10px; height:10px; border-radius:50%; margin-top:6px }
+.audit-stream .dot.critical{ background:#ef4444 }
+.audit-stream .dot.ok{ background:#0ea5a0 }
+.audit-stream .event strong{ display:block; font-weight:700 }
+.audit-stream .event small{ color:#64748b }
+
+/* Regional distribution */
+.regional{ background:#fff; border:1px solid rgba(15,23,42,0.04); padding:16px; border-radius:12px; box-shadow:0 2px 8px rgba(2,6,23,0.03) }
+.regional .mini{ background:#f0f9ff; padding:12px; border-radius:8px; display:flex; flex-direction:column; gap:6px }
+.regional .mini small{ color:#0ea5ff; font-weight:700 }
+.regional .mini span{ color:#334155; font-weight:700 }
+
+/* System health */
+.system-health{ background:#fff; border:1px solid rgba(15,23,42,0.04); padding:16px; border-radius:12px; box-shadow:0 2px 8px rgba(2,6,23,0.03); display:flex; gap:16px; align-items:center }
+.system-health .accent{ width:48px; height:48px; border-radius:10px; background:#eef2ff; display:flex; align-items:center; justify-content:center; }
+.system-health .left{ flex:1 }
+.system-health .right{ display:flex; gap:16px }
+.system-health .metric{ text-align:left }
+.system-health .metric small{ display:block; color:#64748b; font-size:12px }
+.system-health .metric strong{ display:block; font-size:16px; color:#0b1a35 }
+
+/* Responsive KPI grid */
+@media(max-width:1280px){ .kpi-cards{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:1024px){ .kpi-cards{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:640px){ .kpi-cards{ grid-template-columns:1fr } .kpi-cards .card{ min-height:80px } .system-admin-dashboard-page{ padding:16px } }
+
+/* Quick actions responsive fallback */
+@media(max-width:1024px){ .quick-actions > div{ grid-template-columns:repeat(2,1fr) } }
+@media(max-width:640px){ .quick-actions > div{ grid-template-columns:1fr } }

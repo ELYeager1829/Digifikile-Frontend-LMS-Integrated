@@ -1,0 +1,1 @@
+export { default as CertificateVerification } from './components/CertificateVerification'
