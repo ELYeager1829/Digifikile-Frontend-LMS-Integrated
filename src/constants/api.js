@@ -44,7 +44,7 @@ export const ENDPOINTS = {
     VERIFY_PASSWORD_RESET_OTP: '/Auth/password/reset/verify',
     RESET_PASSWORD: '/Auth/password/reset',
     CHANGE_PASSWORD: '/Auth/password/change',
-    CURRENT_USER: '/Auth/me',
+    CURRENT_USER: '/Auth/me', 
     UPDATE_CURRENT_USER_PROFILE: '/Auth/me/profile',
   },
   SYSTEM_ADMIN: {
